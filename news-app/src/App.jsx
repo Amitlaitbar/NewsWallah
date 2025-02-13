@@ -6,8 +6,7 @@ import LoadingBar from "react-top-loading-bar";
 import Footer from "./components/Footer";
 
 function App() {
-
-const apiKey=YOUR_API_KEY;
+  const apiKey = "1314df5c1b5e408ea1551fe1a106fca0";
 
   const [category, setCategory] = useState("general");
 
@@ -22,7 +21,12 @@ const apiKey=YOUR_API_KEY;
         progress={progress}
         onLoaderFinished={() => setProgress(0)}
       />
-      <News pageSize={10} category={category} setProgress={setProgress} apiKey={apiKey}/>
+      <News
+        pageSize={10}
+        category={category}
+        setProgress={setProgress}
+        apiKey={apiKey}
+      />
       <Footer />
     </>
   );

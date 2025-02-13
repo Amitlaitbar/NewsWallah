@@ -13,7 +13,9 @@ export default function News(props) {
   const fetchData = async (pageNumber) => {
     try {
       props.setProgress(20);
-      let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=${props.apiKey}&page=${pageNumber}&pageSize=${props.pageSize}&category=${props.category}`;
+      let url = `https://newsapi.org/v2/everything?q=${props.category}&apiKey=1314df5c1b5e408ea1551fe1a106fca0`;
+      console.log(url);
+
       setLoader(true);
       let data = await fetch(url);
       props.setProgress(40);
@@ -23,6 +25,8 @@ export default function News(props) {
       }
 
       let parsedData = await data.json();
+      console.log(parsedData);
+
       setLoader(false);
       props.setProgress(70);
       setArticles(parsedData.articles);
@@ -74,16 +78,25 @@ export default function News(props) {
           </>
         )}
       </h1>
-      {loader &&  <div className="flex flex-wrap"style={{width: "100%",  alignItems: "center", justifyContent: "center", }}>
-        <SkeletonCard />
-        <SkeletonCard />
-        <SkeletonCard />
-        <SkeletonCard />
-        <SkeletonCard />
-        <SkeletonCard />
-        <SkeletonCard />
-        <SkeletonCard />
-      </div>}
+      {loader && (
+        <div
+          className="flex flex-wrap"
+          style={{
+            width: "100%",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <SkeletonCard />
+          <SkeletonCard />
+          <SkeletonCard />
+          <SkeletonCard />
+          <SkeletonCard />
+          <SkeletonCard />
+          <SkeletonCard />
+          <SkeletonCard />
+        </div>
+      )}
       {error && <div>Error: {error}</div>}
       <div className="flex flex-wrap justify-center">
         {!loader &&
