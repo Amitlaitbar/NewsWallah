@@ -6,7 +6,7 @@ import LoadingBar from "react-top-loading-bar";
 import Footer from "./components/Footer";
 
 function App() {
-  const apiKey = "1314df5c1b5e408ea1551fe1a106fca0";
+  const apiKey = "YOUR_API_KEY";
 
   const [category, setCategory] = useState("general");
 
